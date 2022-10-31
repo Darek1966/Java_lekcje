@@ -5,7 +5,14 @@ public class Auto {    // klasa
     public int rok;
     public  int przebieg;
 
-// metoda
+    // dodajemy konstruktor
+    public Auto(String marka, String model, int rok, int przebieg) {
+        // dodajemy this
+        this.marka = marka;
+        this.model = model;
+        this.rok = rok;
+        this.przebieg = przebieg;
+    }
     public void jedz(){
         System.out.println("Jedz!");
     }
