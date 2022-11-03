@@ -8,9 +8,10 @@ public class Footballer extends Person {
         System.out.println("Jestem w konstruktorze Footballer");
         this.footballClub = footballClub;
     }
-
+    public void eat() {
+        System.out.println("Lubię zdrową żywność"); // nadpisana metoda eat
+    }
     public void playFootball() {
-
         System.out.println("Gram w piłkę w klubie: " + footballClub);
     }
 
