@@ -3,12 +3,21 @@ package drivers;
 public class WebDriverTest {
 
     public static void main(String[] args) {
-        ChromeDriver chromeDriver = new ChromeDriver();
-        chromeDriver.get();
-        chromeDriver.findElementBy();
 
-        FirefoxDriver firefoxDriver = new FirefoxDriver();
-        firefoxDriver.get();
-        firefoxDriver.findElementBy();
+        WebDriver driver = getDriver("chrome");
+        driver.get();
+        driver.findElementBy();
+        driver.findElementBy();
+        driver.findElementBy();
+        driver.findElementBy();
+        driver.findElementBy();
+    }
+    private static WebDriver getDriver(String name) {
+        if(name.equals("chrome")) {   // equals - sprawdzenie równości String-ów
+            return new ChromeDriver();
+        } else if(name.equals("firefox")) {
+            return new FirefoxDriver();
+        }
+        return null;
     }
 }
