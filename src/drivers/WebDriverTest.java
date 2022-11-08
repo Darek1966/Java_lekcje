@@ -4,7 +4,14 @@ public class WebDriverTest {
 
     public static void main(String[] args) throws NoValidBrowserName {
 
-        WebDriver driver = getDriver("chrome");
+        // przechodzimy po wartościach w Enum
+        DriverType[] driverTypes = DriverType.values();
+        for (int i=0; i<driverTypes.length; i++) {
+            System.out.println(driverTypes[i].name);
+            System.out.println(driverTypes[i].path);
+        }
+
+        WebDriver driver = getDriver(DriverType.CHROME);
         driver.get();
         driver.findElementBy();
         driver.findElementBy();
@@ -12,13 +19,20 @@ public class WebDriverTest {
         driver.findElementBy();
         driver.findElementBy();
     }
-    private static WebDriver getDriver(String name) throws NoValidBrowserName {
-        if(name.equals("chrome")) {   // equals - sprawdzenie równości String-ów
+    // pierwszy sposób
+    /*private static WebDriver getDriver(DriverType type) {
+        if (type == DriverType.CHROME) {
             return new ChromeDriver();
-        } else if(name.equals("firefox")) {
-            return new FirefoxDriver();
         }
-        // return null; // zakomentowane - tworzę wyjątek własny (lekcja 80)
-        throw new NoValidBrowserName("Brak prawidłowej nazwy przeglądarki");
+            return new FirefoxDriver();
+    }*/
+    // drugi sposób
+    private static WebDriver getDriver(DriverType type) {
+        if (type.name.equals("chrome")) {
+            System.out.println(type.path);
+            return new ChromeDriver();
+        }
+        System.out.println(type.path);
+        return new FirefoxDriver();
     }
 }
